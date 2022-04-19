@@ -1,2 +1,0 @@
-# firstDeployment
-firstDeployment of CDC
