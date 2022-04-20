@@ -353,7 +353,7 @@ h6 {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(0deg, #c23135 0%, #c9484c 100%);
+    background: linear-gradient(0deg, #74d5f3 0%, #43cffa 100%);
     padding: 0;
 }
 
@@ -390,26 +390,23 @@ h6 {
     color: #fff;
     /* color: #fd2424; */
 }
-.container {
-    /* display: flex; */
-    flex : 1;
-    flex-wrap:  wrap;
-}
 
 .fire {
-
+    /* position: relative; */
     display: flex;
     flex-wrap:  wrap;
-    background-color: aqua;
+    /* background-color: rgb(94, 170, 170); */
     /* align-content: flex-start; */
-    margin-top: 1500px;
-    width: 250px;
+    /* margin-top: 1500px; */
+    
+    margin-top: 30px;
+    width: 350px;
     height: 500px;
 }
 
 /* 小圆的样式 */
 .dot {
-    /* position: absolute; */
+    position: absolute;
    
     /* display: flex; */
     /* flex-direction: row; */
@@ -417,31 +414,38 @@ h6 {
     bottom: -310px;
     margin-left: 0px;
     left: 0;
-    width: 80px;
-    height: 80px;
-    background: rgba(253, 170, 102, 0.3);
-    border-radius: 50%;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: inset -5px 7px 8px 0 rgb(255, 205, 205);
+   
+  
+    /* box-shadow: inset -5px 7px 8px 0 rgb(255, 205, 205); */
     flex-wrap:  wrap;
 }
 
 @keyframes move1 {
-    100% {
-        transform: translateY(-1550px);
+    100%{
+        transform: translate(0,-1550px);
+    }
+    70% {
+        transform: translate(-500px,-1550px);
         /* margin-left: 500px; */
         display: none;
+    }
+    50% {
+        transform: translate(100px,-1550px);
     }
 }
 
 @keyframes move2 {
-    100% {
-        transform: translateY(-1550px);
-        /* transform: translateX(-1150px); */
-        /* margin-left: -500px; */
+    100%{
+        transform: translate(0,-1550px);
+    }
+    70% {
+        transform: translate(500px,-1550px);
+        /* margin-left: 300px; */
+        
         display: none;
+    }
+    50% {
+        transform: translate(-100px,-1550px);
     }
 }
 #echarts_adata{
