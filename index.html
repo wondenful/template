@@ -2,288 +2,326 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开场动画</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <title>五年计划视角</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+        body {
+            background-color: #111;
+            animation: lighter 2s ease-out;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
 
-    <!-- Favicons -->
-    <link href="./assets/img/favicon.png" rel="icon">
-    <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        @keyframes shrink {
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+            0% {
+                width: 100px;
+                height: 100px;
+            }
 
-    <!-- Vendor CSS Files -->
-    <link href="./assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+            100% {
+                margin-top: 3%;
+                width: 110px;
+                height: 110px;
+            }
 
-    <!-- Template Main CSS File -->
-    <link href="./assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="cwg.css">
+        }
 
-    <!-- =======================================================
-  * Template Name: Selecao - v4.1.0
-  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  <style>
-    .container-toggle {
-        margin-left: 80px;
-        float: right;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 30px;
-        margin-left: 0px;
-        /* background-color: aqua; */
+        @keyframes lighter {
+
+            /* 
+    0%{
+        background-color: #111;
     }
+    100%{
+        background-color: #f85e2f;
+    } */
+            from {
+                background-color: rgb(0, 0, 0);
+            }
 
-    .text-toggle {
-        cursor: pointer;
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 14px;
-        color: rgb(255, 255, 255);
-        font-weight: 60;
-    }
+            to {
+                background-color: rgb(255, 140, 87);
+            }
 
-    .toggle-button {
-        position: relative;
+        }
 
-        width: 50px;
-        height: 26px;
-        margin-bottom:3px;
 
-        vertical-align: top;
 
-        background: #f7f7f7;
-        border: 1px solid #bbc1e1;
-        border-radius: 30px;
-        outline: none;
-        cursor: pointer;
+        @keyframes scaleUpDown {
 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+            0%,
+            100% {
+                transform: scaleY(1) scaleX(1);
+            }
 
-        transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
-    }
+            50%,
+            90% {
+                transform: scaleY(1.1);
+            }
 
-    .toggle-button::after {
-        content: "";
-        position: absolute;
-        left: 3px;
-        top: 1px;
-        width: 22px;
-        height: 22px;
-        background-color: rgb(255, 196, 0);
-        border-radius: 50%;
-        transform: translateX(0);
-        transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
-    }
+            75% {
+                transform: scaleY(0.95);
+            }
 
-    .toggle-button:checked::after {
-        transform: translateX(calc(100% + 1px));
-        background-color: #fff;
-    }
+            80% {
+                transform: scaleX(0.95);
+            }
+        }
 
-    .toggle-button:checked {
-        background-color: rgb(255, 196, 0);
-    }
-</style>
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: skewX(0) scale(1);
+            }
+
+            50% {
+                transform: skewX(5deg) scale(0.9);
+            }
+        }
+
+        @keyframes particleUp {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                top: -100%;
+                transform: scale(0.5);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                background-color: #ef5a00;
+            }
+
+            50% {
+                background-color: #ff7800;
+            }
+        }
+
+        .fire {
+            position: absolute;
+            top: calc(80% - 50px);
+            left: calc(50% - 50px);
+            width: 100px;
+            height: 100px;
+            /* background-color: blue;  */
+            margin-left: auto;
+            margin-right: auto;
+            animation: shrink 3s ease-out;
+            animation-delay: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        .fire-center {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            animation: scaleUpDown 3s ease-out;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+
+        }
+
+        .fire-center .main-fire {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          
+            background-image: radial-gradient(farthest-corner at 10px 0,
+                    #d43300 0%,
+                    #ef5a00 95%);
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+
+        .fire-center .particle-fire {
+            position: absolute;
+            top: 60%;
+            left: 45%;
+            width: 10px;
+            height: 10px;
+            background-color: #ef5a00;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .fire-right {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            animation: shake 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .fire-right .main-fire {
+            position: absolute;
+            top:20%;
+            right: -20%;
+            width: 90%;
+            height: 90%;
+            background-color: #de4101;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+
+        .fire-right .particle-fire {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: #ef5a00;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .fire-left {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            animation: shake 3s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+
+        }
+
+        .fire-left .main-fire {
+            position: absolute;
+            top: 20%;
+            left: -20%;
+            width: 90%;
+            height: 90%;
+            background-color: #ef5a00;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+
+        .fire-left .particle-fire {
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 10%;
+            height: 10%;
+            background-color: #ef5a00;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .fire-bottom .main-fire {
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            width: 75%;
+            height: 75%;
+            background-color: #ff7800;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 100% 40%;
+            filter: blur(10px);
+            animation: glow 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        .imageShow {
+            width: 600px;
+            height: 600px;
+            /* background: rgb(62, 212, 162); */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -300px;
+            margin-top: -300px;
+        }
+
+        .imageShow>img {
+            height: 100%;
+            width: 100%;
+            margin-top:-100px;
+            opacity: 0.0;
+            animation: txtlighter 3s linear;
+            animation-delay:6s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes txtlighter {
+
+            0%{
+                opacity: 0.0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
-        <div class="container d-flex align-items-center justify-content-between" style=" justify-content:flex-end">
-           
-            <div class="logo"  >
-                <h1 style="color: rgb(248, 222, 222);
-                        ">历史馆</h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="web/main/index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>
-<!-- background-color: aqua; -->
-            <nav id="navbar" class="navbar" style="
-             padding-left: 300px;">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="index_start.html">历史馆</a></li>
-                    <li><a class="nav-link scrollto" href="gallery.html">热门词云</a></li>
-                    <li><a class="nav-link scrollto" href="general.html">远景规划</a></li>
-                    <li><a class="nav-link scrollto" href="China.html">具体省份</a></li>
-                    <li><a class="nav-link scrollto" href="contact.html">联系我们</a></li>
-                    <li>
-                    </li>
-                </ul>
-               
-             
-            </nav>
-      
-            <!-- .navbar -->
-
+    <div class="fire">
+        <div class="fire-left">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
+            <div class="particle-fire"></div>
         </div>
-          
-        <div class="container-toggle">
-            <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button" onclick=changeBg()>
-            <label for="toggle-button" class="text-toggle" id = "txt-toggle">明亮</label>
+        <div class="fire-center">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
         </div>
-        <script>
-            flag = 1
-            function changeBg() {
-             var mainColor = document.getElementById("hero").style
-             var txt = document.getElementById("txt-toggle")
-             console.log('mainColor',mainColor)
-                if (flag%2) { 
-                    mainColor.background = " linear-gradient(0deg, #c23135 0%, #c9484c 100%)" 
-                    txt.innerHTML="护眼"
-                    flag = flag +1;
-                }else {
-                    mainColor.background = "linear-gradient(0deg, #286097 0%, 	#104E8B 100%)" 
-                    flag = flag +1;
-                    txt.innerHTML="明亮"
-                }
-            }
-        </script>
-    </header>
-    <!-- End Header -->
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-
-            <!-- Slide 1 -->
-            <div class="carousel-item active" style="
-                        flex-grow:1;
-                        flex-direction: row ;
-                        justify-content:space-between;
-                        flex-basis:auto;
-                    ">
-                <div class="carousel-container">
-                    <div class="originTxt">
-                        <h2 class="animate__animated animate__fadeInDown"><span id="demo">五年计划</span></h2>
-                        <p class="animate__animated fanimate__adeInUp" id="txt">本篇将以十四个五年规划的视角向你展示在中国共产党领导下取得的成就</br>
-                            点击下方的方块开启历史之旅</p>
-                    </div>
-
-                    <div id="echarts_adata">
-                        123456
-                        ECHARTS 在这里展示
-                    </div>
-
-                    <div class="fire">
-                       
-                    </div>
-
-                </div>
-            </div>
-            <!-- switch the pages -->
-            <!-- 
-            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-            </a>
-
-            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-            </a> -->
-
+        <div class="fire-right">
+            <div class="main-fire"></div>
+            <div class="particle-fire"></div>
         </div>
-
-        <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28 " preserveAspectRatio="none">
-            <defs>
-                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-            </defs>
-            <g class="wave1">
-                <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-            </g>
-            <g class="wave2">
-                <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-            </g>
-            <g class="wave3">
-                <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-            </g>
-        </svg>
-
-    </section>
-    <!-- End Hero -->
-
-    <main id="main" class="pap">
-
-
-        <div class="pa" id="step-container" style="overflow">
-            <!-- onmouseover should be depart from onclick  -->
-            <div class="step-circle" id="0" onmouseover="getID(0)" onmouseout="removeEffect(0)"
-                onclick="showTxt(0),exCharts(0)"> 计划
-            </div>
-            <div class="step-circle" id="1" onmouseover="getID(1)" onmouseout="removeEffect(1)"
-                onclick="showTxt(1),exCharts(1),exBubble(1)">一五
-            </div>
-            <div class="step-circle" id="2" onmouseover="getID(2)" onmouseout="removeEffect(2)"
-                onclick="showTxt(2),exCharts(2),exBubble(2)">二五</div>
-            <div class="step-circle" id="3" onmouseover="getID(3)" onmouseout="removeEffect(3)"
-                onclick="showTxt(3),exCharts(3),exBubble(3)">三五</div>
-            <div class="step-circle" id="4" onmouseover="getID(4)" onmouseout="removeEffect(4)"
-                onclick="showTxt(4),exCharts(4),exBubble(4)">四五</div>
-            <div class="step-circle" id="5" onmouseover="getID(5)" onmouseout="removeEffect(5)"
-                onclick="showTxt(5),exCharts(5),exBubble(5)">五五</div>
-            <div class="step-circle" id="6" onmouseover="getID(6)" onmouseout="removeEffect(6)"
-                onclick="showTxt(6),exCharts(6),exBubble(6)">六五</div>
-            <div class="step-circle" id="7" onmouseover="getID(7)" onmouseout="removeEffect(7)"
-                onclick="showTxt(7),exCharts(7),exBubble(7)">七五</div>
-            <div class="step-circle" id="8" onmouseover="getID(8)" onmouseout="removeEffect(8)"
-                onclick="showTxt(8),exCharts(8),exBubble(8)">八五</div>
-            <div class="step-circle" id="9" onmouseover="getID(9)" onmouseout="removeEffect(9)"
-                onclick="showTxt(9),exCharts(9),exBubble(9)">九五</div>
-            <div class="step-circle" id="10" onmouseover="getID(10)" onmouseout="removeEffect(10)"
-                onclick="showTxt(10),exCharts(10),exBubble(10)">十五</div>
-            <div class="step-circle" id="11" onmouseover="getID(11)" onmouseout="removeEffect(11)"
-                onclick="showTxt(11),exCharts(11),exBubble(11)">十一五</div>
-            <div class="step-circle" id="12" onmouseover="getID(12)" onmouseout="removeEffect(12)"
-                onclick="showTxt(12),exCharts(12),exBubble(12)">十二五</div>
-            <div class="step-circle" id="13" onmouseover="getID(13)" onmouseout="removeEffect(13)"
-                onclick="showTxt(13),exCharts(13),exBubble(13)">十三五</div>
-            <div class="step-circle" id="14" onmouseover="getID(14)" onmouseout="removeEffect(14)"
-                onclick="showTxt(14),exCharts(14),exBubble(14)">十四五</div>
-            <div class="step-circle" id="15" onmouseover="getID(15)" onmouseout="removeEffect(15)" onclick="Star()">未来
-            </div>
-
-        </div>
-
-    </main>
-    <!-- End #main -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="./assets/vendor/aos/aos.js"></script>
-    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="./assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="./assets/vendor/php-email-form/validate.js"></script>
-    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="./assets/js/main.js"></script>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
-    <script src="cwg.js"></script>
+    </div>
+    <div class="imageShow">
+        <img src="./assets/img/RED.png" alt="" onclick=" window.location.href='index_start.html'">
     
+    </div>
+
+
+
+
+    <script>
+
+
+
+    </script>
+
+
 </body>
 
 </html>
