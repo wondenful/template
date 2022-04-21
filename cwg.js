@@ -560,7 +560,7 @@ function initBubble() {
         // 下面的4个变量 代表小圆随机位置  和 随机持续时间和延迟
         var bottom = randomNum(10, 1000);
         var left = randomNum(0, 200);
-        var duration = randomNum(30, 60) / 1;
+        var duration = randomNum(20, 30) / 1;
         var delay = randomNum(1, 10);
         // console.log('left', left);
         circle.style.cssText += `
@@ -632,7 +632,7 @@ function exBubble(e) {
         // 下面的4个变量 代表小圆随机位置  和 随机持续时间和延迟
         var bottom = randomNum(10, 1000);
         var left = randomNum(0, 200);
-        var duration = randomNum(30, 60) / 1;
+        var duration = randomNum(10,20) / 1;
         var delay = randomNum(0, 50) / 10;
 
         console.log('i', i);
