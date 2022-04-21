@@ -704,3 +704,6 @@ function bubbleAnimation() {
     }, 500)
 
 }
+
+
+
