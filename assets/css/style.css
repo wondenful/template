@@ -487,6 +487,104 @@ h6 {
     }
 }
 
+
+@keyframes move1-f {
+    100% {
+        transform: translate(0px, -800px);
+        left:400px ;
+        right:400px ;
+    }
+
+    70% {
+        transform: translate(-100px, -800px);
+        /* margin-left: 500px; */
+        display: none;
+    }
+
+    40% {
+        transform: translate(100px, -500px);
+    }
+}
+
+@keyframes move2-f {
+    100% {
+        transform: translate(0px, -800px);
+        left:0px ;
+        right:0px ;
+    }
+
+    70% {
+        transform: translate(100px, -800px);
+        /* margin-left: 300px; */
+
+        display: none;
+    }
+
+    40% {
+        transform: translate(-100px, -550px);
+    }
+}
+
+@keyframes move3-f {
+    100% {
+        transform: translate(0px, -800px);
+        left:100px ;
+        right:100px ;
+    }
+
+    70% {
+        transform: translate(100px, -800px);
+        /* margin-left: 300px; */
+
+        display: none;
+    }
+
+    40% {
+        transform: translate(-100px, -550px);
+    }
+}
+
+
+@keyframes move4-f {
+    100% {
+        transform: translate(0px, -800px);
+        left:300px ;
+        right:300px ;
+    }
+
+    70% {
+        transform: translate(100px, -800px);
+        /* margin-left: 300px; */
+
+        display: none;
+    }
+
+    40% {
+        transform: translate(-100px, -550px);
+    }
+}
+
+
+@keyframes move5-f {
+    100% {
+        transform: translate(0px, -800px);
+        left:200px ;
+        right:200px ;
+    }
+
+    70% {
+        transform: translate(100px, -800px);
+        /* margin-left: 300px; */
+
+        display: none;
+    }
+
+    40% {
+        transform: translate(-100px, -550px);
+    }
+}
+
+
 #echarts_adata {
     height: 90%;
     width: 80%;
