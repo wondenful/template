@@ -561,7 +561,7 @@ function initBubble() {
         var bottom = randomNum(10, 1000);
         var left = randomNum(0, 200);
         var duration = randomNum(20, 30) / 1;
-        var delay = randomNum(3, 20);
+        var delay = randomNum(1, 10);
         // console.log('left', left);
         circle.style.cssText += `
       
@@ -640,6 +640,8 @@ function exBubble(e) {
         circle.style.cssText += `
         flex-direction: column;
         position:absolute;
+        animation-fill-mode: forwards;
+        animation-iteration-count:infinite;
         flex-wrap:  wrap;
         left:${left}px;
         background-color: aqua
@@ -652,16 +654,10 @@ function exBubble(e) {
         text-align: center;
         justify-content: center;
             `;
-        if (i == 0) {
-            circle.style.cssText += `  animation:move1-f ${duration}s linear 0s ;  animation-fill-mode: forwards;`
-        } else if(i==1){
-            circle.style.cssText += `  animation:move2-f ${duration}s linear ${delay}s ;  animation-fill-mode: forwards;`
-        }else if(i==2){
-            circle.style.cssText += `  animation:move3-f ${duration}s linear ${delay}s ;  animation-fill-mode: forwards;`
-        }else if(i==3){
-            circle.style.cssText += `  animation:move4-f ${duration}s linear ${delay}s ;  animation-fill-mode: forwards;`
-        }else if(i==4){
-            circle.style.cssText += `  animation:move5-f ${duration}s linear ${delay}s ;  animation-fill-mode: forwards;`
+        if (i % 2) {
+            circle.style.cssText += `  animation:move2 ${duration}s linear 0s infinite;`
+        } else {
+            circle.style.cssText += `  animation:move1 ${duration}s linear ${delay}s infinite;`
         }
         circle.className += " dot";
         console.log('CIRCLE', i, circle)
