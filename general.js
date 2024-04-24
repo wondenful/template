@@ -1,635 +1,583 @@
-
-
 window.onload = function () {
-    // mouse scroll
-    var a = document.getElementById("step-container");
-    var scroll_width = 100; //滚动一下的距离
-    if (document.addEventListener) {
-        document.addEventListener('DOMMouseScroll', mousewheel_event, false); // FF
-    }
-    a.onmousewheel = mousewheel_event; // IE/Opera/Chrome
-    function mousewheel_event(e) {
-        var e = e || window.event, v;
-        e.wheelDelta ? v = e.wheelDelta : v = e.detail;
-        if (v > 3 || -v > 3) v = -v;
-        v > 0 ? a.scrollLeft += scroll_width : a.scrollLeft -= scroll_width;
+  // mouse scroll
+  var a = document.getElementById("step-container");
+  var scroll_width = 100; //滚动一下的距离
+  if (document.addEventListener) {
+    document.addEventListener("DOMMouseScroll", mousewheel_event, false); // FF
+  }
+  a.onmousewheel = mousewheel_event; // IE/Opera/Chrome
+  function mousewheel_event(e) {
+    var e = e || window.event,
+      v;
+    e.wheelDelta ? (v = e.wheelDelta) : (v = e.detail);
+    if (v > 3 || -v > 3) v = -v;
+    v > 0 ? (a.scrollLeft += scroll_width) : (a.scrollLeft -= scroll_width);
 
-        e.preventDefault(); //阻止浏览器的默认滚动
-    }
-    initCharts();
-
+    e.preventDefault(); //阻止浏览器的默认滚动
+  }
+  initCharts();
 };
-
 
 const data = {
-    name: '专栏方向',
-    children: [
-        {
-            name: '经济安全保障',
-
-        },
-        {
-            name: '社会关爱服务',
-
-        },
-        {
-            name: '"一老一小"服务',
-
-        },
-        {
-            name: '全民健康',
-
-        },
-        {
-            name: '教育提质扩容',
-        },
-        {
-            name: '环境保护和资源节约',
-
-        },
-        {
-            name: '重要生态系统保护和修复',
-
-        },
-        {
-            name: '社会主义文化繁荣发展',
-
-        },
-        {
-            name: '促进边境地区发展',
-
-        },
-        {
-            name: '新型城镇化建设',
-
-        },
-        {
-            name: '现代农业农村',
-
-        },
-        {
-            name: '数字化应用',
-
-        },
-        {
-            name: '数字经济发展重点',
-
-        },
-        {
-            name: '国家水网骨干',
-        },
-        {
-            name: '现代能源体系建设',
-
-        },
-        {
-            name: '交通强国建设',
-
-        },
-        {
-            name: '制造业核心竞争力',
-
-        },
-        {
-            name: '国家重大科技基础设施',
-
-        },
-        {
-            name: '科技前沿领域攻关',
-
-        },
-
-    ]
+  name: "应用方向",
+  children: [
+    {
+      name: "政府决策支持",
+    },
+    {
+      name: "舆情风险管理",
+    },
+    {
+      name: "市场营销和产品定位",
+    },
+    {
+      name: "媒体监测和评估",
+    },
+    {
+      name: "危机管理和应急响应",
+    },
+    {
+      name: "舆情研究和学术分析",
+    },
+    {
+      name: "选举和政治竞选分析",
+    },
+    {
+      name: "品牌声誉管理",
+    },
+    {
+      name: "其他公共平台数据分析",
+    },
+  ],
 };
-
+const data1 = {
+  name: "目标和愿景",
+  children: [
+    {
+      name: "目标",
+      children: [
+        {
+          name: "深入理解舆论动态",
+        },
+        {
+          name: "增强公众参与与了解",
+        },
+        {
+          name: "促进沟通与决策",
+        },
+      ],
+    },
+    {
+      name: "愿景",
+      children: [
+        {
+          name: "创新可视化技术应用",
+        },
+        {
+          name: "全面的数据支持",
+        },
+        {
+          name: "个性化服务与定制化功能",
+        },
+        {
+          name: "可持续发展与社会责任",
+        },
+        {
+          name: "国际化视野与合作",
+        },
+      ],
+    },
+  ],
+};
+const data2 = {
+  name: "创新和研发计划",
+  children: [
+    {
+      name: "可视化技术与算法",
+    },
+    {
+      name: "用户体验与界面设计",
+    },
+    {
+      name: "实时监测与预警系统",
+    },
+    {
+      name: "安全与隐私保护",
+    },
+    {
+      name: "合作与应用拓展",
+    },
+    {
+      name: "持续改进与迭代",
+    },
+  ],
+};
 function initCharts() {
+  var dom = document.getElementsByClassName("step-circle");
+  console.log("length of dom ", dom.length);
+  // 0
+  {
+    var myChart = echarts.init(dom[0]);
 
-
-    var dom = document.getElementsByClassName("step-circle")
-    console.log('length of dom ', dom.length)
-    // 0 
-    {
-        var myChart = echarts.init(dom[0]);
-
-        options = {
-
-            tooltip: {
-                trigger: 'item',
-                triggerOn: 'mousemove'
+    options = {
+      tooltip: {
+        trigger: "item",
+        triggerOn: "mousemove",
+      },
+      series: [
+        {
+          type: "tree",
+          id: 0,
+          name: "tree1",
+          data: [data],
+          top: "12%",
+          left: "25%",
+          bottom: "12%",
+          right: "45%",
+          symbolSize: 7,
+          edgeShape: "polyline",
+          edgeForkPosition: "63%",
+          initialTreeDepth: 3,
+          lineStyle: {
+            width: 2,
+          },
+          label: {
+            position: "left",
+            verticalAlign: "middle",
+            align: "right",
+            fontWeight: "bold",
+            fontSize: 17,
+          },
+          leaves: {
+            label: {
+              position: "right",
+              verticalAlign: "middle",
+              align: "left",
             },
-            series: [
-                {
-                    type: 'tree',
-                    id: 0,
-                    name: 'tree1',
-                    data: [data],
-                    top: '12%',
-                    left: '15%',
-                    bottom: '12%',
-                    right: '35%',
-                    symbolSize: 7,
-                    edgeShape: 'polyline',
-                    edgeForkPosition: '63%',
-                    initialTreeDepth: 3,
-                    lineStyle: {
-                        width: 2
-                    },
-                    label: {
-                        position: 'left',
-                        verticalAlign: 'middle',
-                        align: 'right',
-                        fontWeight: "bold",
-                        fontSize: 17
-                    },
-                    leaves: {
-                        label: {
-                            position: 'right',
-                            verticalAlign: 'middle',
-                            align: 'left'
-                        }
-                    },
-                    emphasis: {
-                        focus: 'descendant'
-                    },
-                    expandAndCollapse: true,
-                    animationDuration: 550,
-                    animationDurationUpdate: 750
-                }
-            ]
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    // 1
-    {
-        var myChart = echarts.init(dom[1]);
-        options = {
-            series: {
-                type: 'sankey',
-                layout: 'none',
-                emphasis: {
-                    focus: 'adjacency'
-                },
-                label: {
-                    show: true,
-                    position: "insideTopLeft",
-                    fontStyle: "normal",
-                    fontWeight: "12"
-                },
-                data: [
-                    {
-                        name: '科技前沿领域',
-                        itemStyle: {
-                            color: "#f06a42"
-                        },
-                        label: {
-                            fontSize: 19,
-                            fontWeight: "normal",
-                            color: '#fff',
-                        }
-                    },
+          },
+          emphasis: {
+            focus: "descendant",
+          },
+          expandAndCollapse: true,
+          animationDuration: 550,
+          animationDurationUpdate: 750,
+        },
+      ],
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
+  // 1
+  {
+    var myChart = echarts.init(dom[1]);
 
-                    {
-                        name: '新一代人工智能'
-                    },
-                    {
-                        name: '量子信息'
-                    },
-                    {
-                        name: '集成电路'
-                    },
-                    {
-                        name: '脑科学与类脑研究'
-                    },
-                    {
-                        name: '基因与生物技术'
-                    },
-                    {
-                        name: '临床医学与健康'
-                    },
+    options = {
+      tooltip: {
+        trigger: "item",
+        triggerOn: "mousemove",
+      },
+      series: [
+        {
+          type: "tree",
+          id: 0,
+          name: "tree1",
+          data: [data1],
+          top: "12%",
+          left: "25%",
+          bottom: "12%",
+          right: "45%",
+          symbolSize: 7,
+          edgeShape: "polyline",
+          edgeForkPosition: "63%",
+          initialTreeDepth: 3,
+          lineStyle: {
+            width: 2,
+          },
+          label: {
+            position: "left",
+            verticalAlign: "middle",
+            align: "right",
+            fontWeight: "bold",
+            fontSize: 17,
+          },
+          leaves: {
+            label: {
+              position: "right",
+              verticalAlign: "middle",
+              align: "left",
+            },
+          },
+          emphasis: {
+            focus: "descendant",
+          },
+          expandAndCollapse: true,
+          animationDuration: 550,
+          animationDurationUpdate: 750,
+        },
+      ],
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
+  // 2
+  {
+    var myChart = echarts.init(dom[2]);
 
-                    {
-                        name: '深空深地深海和极地探测'
-                    },
+    options = {
+      tooltip: {
+        trigger: "item",
+        triggerOn: "mousemove",
+      },
+      series: [
+        {
+          type: "tree",
+          id: 0,
+          name: "tree1",
+          data: [data2],
+          top: "12%",
+          left: "30%",
+          bottom: "12%",
+          right: "45%",
+          symbolSize: 7,
+          edgeShape: "polyline",
+          edgeForkPosition: "63%",
+          initialTreeDepth: 3,
+          lineStyle: {
+            width: 2,
+          },
+          label: {
+            position: "left",
+            verticalAlign: "middle",
+            align: "right",
+            fontWeight: "bold",
+            fontSize: 17,
+          },
+          leaves: {
+            label: {
+              position: "right",
+              verticalAlign: "middle",
+              align: "left",
+            },
+          },
+          emphasis: {
+            focus: "descendant",
+          },
+          expandAndCollapse: true,
+          animationDuration: 550,
+          animationDurationUpdate: 750,
+        },
+      ],
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
+  //3
+  {
+    var myChart = echarts.init(dom[3]);
+    options = {
+      series: {
+        type: "sankey",
+        layout: "none",
+        emphasis: {
+          focus: "adjacency",
+        },
+        label: {
+          show: true,
+          position: "insideTopLeft",
+          fontStyle: "normal",
+          fontWeight: "12",
+        },
+        data: [
+          {
+            name: "可视化分析技术",
+            itemStyle: {
+              color: "#f06a42",
+            },
+            label: {
+              fontSize: 19,
+              fontWeight: "normal",
+              color: "#fff",
+            },
+          },
 
-
-                ],
-                links: [
-                    {
-                        source: '科技前沿领域',
-                        target: '新一代人工智能',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '量子信息',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '集成电路',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '脑科学与类脑研究',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '基因与生物技术',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '临床医学与健康',
-                        value: 5
-                    },
-                    {
-                        source: '科技前沿领域',
-                        target: '深空深地深海和极地探测',
-                        value: 5
-                    },
-                ]
-            }
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    // 2
-    {
-        var myChart = echarts.init(dom[2]);
-        options = {
-            series: {
-                type: 'sankey',
-                layout: 'none',
-                emphasis: {
-                    focus: 'adjacency'
-                },
-                label: {
-                    show: true,
-                    position: "insideTopLeft",
-                    fontStyle: "normal",
-                    fontWeight: "12"
-                },
-                data: [
-                    {
-                        name: '经济安全保障工程',
-                        itemStyle: {
-                            color: "#f1511f"
-                        },
-                        label: {
-                            fontSize: 19
-                        }
-                    },
-                    {
-                        name: '粮食储备设施'
-                    },
-                    {
-                        name: '油气勘探开发'
-                    },
-                    {
-                        name: '煤制油气基地'
-                    },
-                    {
-                        name: '电力安全保障'
-                    },
-                    {
-                        name: '新一轮找矿突破战略'
-                    },
-                    {
-                        name: '应急处置能力提升'
-                    },
-
-
-                ],
-                links: [
-                    {
-                        source: '经济安全保障工程',
-                        target: '粮食储备设施',
-                        value: 5
-                    },
-                    {
-                        source: '经济安全保障工程',
-                        target: '油气勘探开发',
-                        value: 5
-                    },
-                    {
-                        source: '经济安全保障工程',
-                        target: '煤制油气基地',
-                        value: 5
-                    },
-                    {
-                        source: '经济安全保障工程',
-                        target: '电力安全保障',
-                        value: 5
-                    },
-                    {
-                        source: '经济安全保障工程',
-                        target: '新一轮找矿突破战略',
-                        value: 5
-                    },
-                    {
-                        source: '经济安全保障工程',
-                        target: '应急处置能力提升',
-                        value: 5
-                    },
-                ]
-            }
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    //3
-    {
-        var myChart = echarts.init(dom[3]);
-        options = {
-            series: {
-                type: 'sankey',
-                layout: 'none',
-                emphasis: {
-                    focus: 'adjacency'
-                },
-                label: {
-                    show: true,
-                    position: "insideTopLeft",
-                    fontStyle: "normal",
-                    fontWeight: "12"
-                },
-                data: [
-                    {
-                        name: '国家重大科技基础设施',
-                        itemStyle: {
-                            color: "#f06a42"
-                        },
-                        label: {
-                            fontSize: 19,
-                            fontWeight: "normal",
-                            color: '#fff',
-                        }
-                    },
-
-                    {
-                        name: '战略导向'
-                    },
-                    {
-                        name: '应用支撑型'
-                    },
-                    {
-                        name: '前瞻引领型'
-                    },
-                    {
-                        name: '民生改善型'
-                    },
-                ],
-                links: [
-                    {
-                        source: '国家重大科技基础设施',
-                        target: '战略导向',
-                        value: 5
-                    },
-                    {
-                        source: '国家重大科技基础设施',
-                        target: '应用支撑型',
-                        value: 5
-                    },
-                    {
-                        source: '国家重大科技基础设施',
-                        target: '前瞻引领型',
-                        value: 5
-                    },
-                    {
-                        source: '国家重大科技基础设施',
-                        target: '民生改善型',
-                        value: 5
-                    },
-                ]
-            }
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    //4
-    {
-        var myChart = echarts.init(dom[4]);
-        options = {
-            series: {
-                type: 'sankey',
-                layout: 'none',
-                emphasis: {
-                    focus: 'adjacency'
-                },
-                label: {
-                    show: true,
-                    position: "insideTopLeft",
-                    fontStyle: "normal",
-                    fontWeight: "12"
-                },
-                data: [
-                    {
-                        name: '制造业核心竞争力提升',
-                        itemStyle: {
-                            color: "#f1511f"
-                        },
-                        label: {
-                            fontSize: 19
-                        }
-                    },
-                    {
-                        name: '高端新材料'
-                    },
-                    {
-                        name: '重大技术装备'
-                    },
-                    {
-                        name: '智能制造与机器人技术'
-                    },
-                    {
-                        name: '航空发动机及燃气轮机'
-                    },
-                    {
-                        name: '北斗产业化'
-                    },
-                    {
-                        name: '新能源汽车和智能汽车'
-                    },
-                    {
-                        name: '高端医疗装备和创新药'
-                    },
-                    {
-                        name: '农业机械装备'
-                    },
-                ],
-                links: [
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '高端新材料',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '重大技术装备',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '智能制造与机器人技术',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '航空发动机及燃气轮机',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '北斗产业化',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '新能源汽车和智能汽车',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '高端医疗装备和创新药',
-                        value: 5
-                    },
-                    {
-                        source: '制造业核心竞争力提升',
-                        target: '农业机械装备',
-                        value: 5
-                    },
-                ]
-            }
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    //5
-    {
-        var myChart = echarts.init(dom[5]);
-        options = {
-            series: {
-                type: 'sankey',
-                layout: 'none',
-                emphasis: {
-                    focus: 'adjacency'
-                },
-                label: {
-                    show: true,
-                    position: "insideTopLeft",
-                    fontStyle: "normal",
-                    fontWeight: "12"
-                },
-                data: [
-                    {
-                        name: '交通强国建设',
-                        itemStyle: {
-                            color: "#f06a42"
-                        },
-                        label: {
-                            fontSize: 19,
-                            fontWeight: "normal",
-                            color: '#fff',
-                        }
-                    },
-
-                    {
-                        name: '战略骨干通道'
-                    },
-                    {
-                        name: '高速铁路'
-                    },
-                    {
-                        name: '普速铁路'
-                    },
-                    {
-                        name: '城市群和都市图轨道交通'
-                    },
-                    {
-                        name: '高速公路'
-                    },
-                    {
-                        name: '港航设施'
-                    },
-                    {
-                        name: '现代化机场'
-                    },
-                    {
-                        name: '综合交通和物流枢纽'
-                    },
-                ],
-                links: [
-                    {
-                        source: '交通强国建设',
-                        target: '战略骨干通道',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '高速铁路',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '普速铁路',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '城市群和都市图轨道交通',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '高速公路',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '港航设施',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '现代化机场',
-                        value: 5
-                    },
-                    {
-                        source: '交通强国建设',
-                        target: '综合交通和物流枢纽',
-                        value: 5
-                    },
-                   
-                ]
-            }
-        };
-        console.log("options=", options)
-        myChart.setOption(options);
-    }
-    
-
-
-
+          {
+            name: "自然语言处理（NLP）",
+          },
+          {
+            name: "机器学习（ML）",
+          },
+          {
+            name: "深度学习（Deep Learning）",
+          },
+          {
+            name: "网络爬虫和数据抓取",
+          },
+          {
+            name: "数据挖掘和信息抽取",
+          },
+          {
+            name: "实时数据处理和流处理",
+          },
+          {
+            name: "可视化和数据展示",
+          },
+          {
+            name: "数据存储和管理",
+          },
+        ],
+        links: [
+          {
+            source: "可视化分析技术",
+            target: "自然语言处理（NLP）",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "机器学习（ML）",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "深度学习（Deep Learning）",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "网络爬虫和数据抓取",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "数据挖掘和信息抽取",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "实时数据处理和流处理",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "可视化和数据展示",
+            value: 5,
+          },
+          {
+            source: "可视化分析技术",
+            target: "数据存储和管理",
+            value: 5,
+          },
+        ],
+      },
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
+  //4
+  {
+    var myChart = echarts.init(dom[4]);
+    options = {
+      series: {
+        type: "sankey",
+        layout: "none",
+        emphasis: {
+          focus: "adjacency",
+        },
+        label: {
+          show: true,
+          position: "insideTopLeft",
+          fontStyle: "normal",
+          fontWeight: "12",
+        },
+        data: [
+          {
+            name: "市场营销和销售计划",
+            itemStyle: {
+              color: "#f1911f",
+            },
+            label: {
+              fontSize: 19,
+              color: "#fff",
+            },
+          },
+          {
+            name: "市场调研与定位",
+          },
+          {
+            name: "品牌建设与宣传推广",
+          },
+          {
+            name: "销售渠道拓展与合作伙伴关系",
+          },
+          {
+            name: "客户关系管理与售后服务",
+          },
+          {
+            name: "市场推广活动与促销策略",
+          },
+          {
+            name: "市场监测与反馈调整",
+          },
+          {
+            name: "持续创新与发展",
+          },
+        ],
+        links: [
+          {
+            source: "市场营销和销售计划",
+            target: "市场调研与定位",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "品牌建设与宣传推广",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "销售渠道拓展与合作伙伴关系",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "客户关系管理与售后服务",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "市场推广活动与促销策略",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "市场监测与反馈调整",
+            value: 5,
+          },
+          {
+            source: "市场营销和销售计划",
+            target: "持续创新与发展",
+            value: 5,
+          },
+        ],
+      },
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
+  //5
+  {
+    var myChart = echarts.init(dom[5]);
+    options = {
+      series: {
+        type: "sankey",
+        layout: "none",
+        emphasis: {
+          focus: "adjacency",
+        },
+        label: {
+          show: true,
+          position: "insideTopLeft",
+          fontStyle: "normal",
+          fontWeight: "12",
+        },
+        data: [
+          {
+            name: "风险管理和危机应对",
+            itemStyle: {
+              color: "#f191af",
+            },
+            label: {
+              fontSize: 19,
+              fontWeight: "normal",
+              color: "#fff",
+            },
+          },
+          {
+            name: "数据安全和隐私风险",
+          },
+          {
+            name: "技术故障和系统崩溃",
+          },
+          {
+            name: "错误或虚假信息的传播",
+          },
+          {
+            name: "不良用户行为和恶意攻击",
+          },
+          {
+            name: "法律合规和风险管控",
+          },
+          {
+            name: "危机公关和舆情应对",
+          },
+        ],
+        links: [
+          {
+            source: "风险管理和危机应对",
+            target: "数据安全和隐私风险",
+            value: 5,
+          },
+          {
+            source: "风险管理和危机应对",
+            target: "技术故障和系统崩溃",
+            value: 5,
+          },
+          {
+            source: "风险管理和危机应对",
+            target: "错误或虚假信息的传播",
+            value: 5,
+          },
+          {
+            source: "风险管理和危机应对",
+            target: "不良用户行为和恶意攻击",
+            value: 5,
+          },
+          {
+            source: "风险管理和危机应对",
+            target: "法律合规和风险管控",
+            value: 5,
+          },
+          {
+            source: "风险管理和危机应对",
+            target: "危机公关和舆情应对",
+            value: 5,
+          },
+        ],
+      },
+    };
+    console.log("options=", options);
+    myChart.setOption(options);
+  }
 }
 const bgUrl = [
-    'assets/img/bg.jpg',
-    'assets/img/tech.png'
-]
+  "assets/img/bg.jpg",
+  "images/bg1.png",
+  "images/bg2.jpg",
+  "images/bg3.jpg",
+  "images/bg4.jpg",
+  "images/bg5.jpg",
+];
 
-
-function exBg(e){
-    var bgNode = document.querySelector("#hero");
-    console.log('e',e);
-    bgNode.style.backgroundImage ="url("+bgUrl[e]+")"
-    //这种写法只能说我异想天开居然能成功
-    console.log('bgNode.style.backgroundImage',bgNode.style.backgroundImage)
+function exBg(e) {
+  var bgNode = document.querySelector("#hero");
+  // console.log('e',e);
+  bgNode.style.backgroundImage = "url(" + bgUrl[e] + ")";
+  // console.log('bgNode.style.backgroundImage',bgNode.style.backgroundImage)
 }
-function originBg(){
-    var bgNode = document.querySelector("#hero");
-    bgNode.style.backgroundImage = "";
-    bgNode.style.background = "linear-gradient(0deg, #c23135 0%, #c9484c 100%);";
-    console.log('leave')
+function exCo(e) {
+  var bgNode = document.querySelector("#hero");
+  var colors = ["red", "blue"]; // 定义颜色数组，根据需要添加更多颜色
+  bgNode.style.backgroundImage = "none";
+  bgNode.style.backgroundColor = colors[e]; // 设置背景颜色
+}
+
+function originBg() {
+  // var bgNode = document.querySelector("#hero");
+  // bgNode.style.backgroundImage = "";
+  // bgNode.style.background = "linear-gradient(0deg, #c23135 0%, #c9484c 100%);";
+  leave();
 }

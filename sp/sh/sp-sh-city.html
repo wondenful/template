@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specific-page</title>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../sp.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navi-contain">
+        <div class="navi">
+            <div class="left-navi">
+                <img src="../fonts/fonts/city.svg" class="navi-img">
+                <span>上海市</span>
+            </div>
+            <div class="right-navi">
+                <a class="navi-button" href="../../index_start.html" >历史馆</a>
+                <a class="navi-button" href="../../gallery.html">热门词云</a>
+                <a class="navi-button" href="../../general.html">远景规划</a>
+                <a class="navi-button active" href="../../China.html" >具体省份</a>
+                <a class="navi-button" href="../../contact.html">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <aside class="left-father">
+        <div class="left-box">
+            <div class="left-title">
+                规划方向
+            </div>
+            <a class="left-button" href="./sp-sh-knowledge.html"><img src="../fonts/fonts/knowledge.svg" class="left-img"><span
+                class="label">知识产权</span></a>
+        <a class="left-button" href="./sp-sh-CNmedicine.html"><img src="../fonts/fonts/sh-CNmedicine.svg" class="left-img"><span
+                class="label">中医药</span></a>
+        <a class="left-button" href="./sp-sh-education.html"><img src="../fonts/fonts/sh-education.svg" class="left-img"><span
+                class="label">教育</span>
+        </a>
+        <a href="./sp-sh-weather.html" class="left-button"><img src="../fonts/fonts/enviroment.svg"
+            class="left-img"><span class="label">气象服务保障</span></a>
+            <a href="./sp-sh-disabled.html" class="left-button"><img src="../fonts/fonts/disabled.svg"
+                class="left-img"><span class="label">残疾人事业</span></a>
+                <a href="./sp-sh-city.html" class="left-button left-button-point"><img src="../fonts/fonts/chengshi.svg"
+                    class="left-img"><span class="label">城市管理精细化</span></a>
+        </div>
+    </aside>
+    <main class="right-box">
+        <div class="right-top-box">
+            <h4 style="color:#012970">城市管理精细化</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">主页</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">具体省份</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">上海</a></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color:#51678f">城市管理精细化</li>
+                </ol>
+            </nav>
+            <div class="card-2">
+                <h4 class="top-card-title">
+                    城市管理精细化
+                    <span class="top-card-span">|上海</span>
+                </h4>
+                <p class="top-card-p">
+                    以习近平新时代中国特色社会主义思想为指导，全面贯彻党的十九大和十九届二中、三中、四中、五中全会精神，
+落实习近平总书记对气象工作的重要指示精神，加快科技创新，努力做到监测精密、预报精准、服务精细，
+发挥气象防灾减灾第一道防线作用。深化供给侧改革，对标国际最高标准最好水平，在服务上海经济社会发展中增加气象业务技术的深度，
+在服务国家战略中助力气象强国建设的广度，在参与国际气象合作中提升气象科技创新的高度。
+                </p>
+            </div>
+        </div>
+        <div class="right-bottom-box">
+            <div class="card-1" id="bar">
+
+            </div>
+            
+
+            
+            <div class="card-1" id="bar2">
+
+            </div>
+            
+        </div>
+    </main>
+    </div>
+
+    <script src="../echarts.min.js"></script>
+
+    <script src="../button.js">
+    </script>
+
+    <script src=""></script>
+    <script>
+        var chartDom = document.getElementById('bar');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            color: ['#ADD8E6', '#4682B4', '#BDB76B', '#000080', '#7ccd7c', '#D8BFD8', '#8B8878', '#528B8B'],
+            title: {
+                text: '部分城市精细化管理指标'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['老旧燃气管道\n更新改造(公里)', '老旧供水管网\n更新改造(公里)',
+                         '架空线入地和\n杆箱整治(公里)', '绿道建设(公里)'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '公里',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: [300,2000,600,1000]
+                }
+            ]
+        }
+        option && myChart.setOption(option);
+
+        var chartDom2 = document.getElementById('bar2');
+        var myChart2 = echarts.init(chartDom2);
+        var option2;
+        option2 = {
+            color: ['#ADD8E6', '#4682B4','#BDB76B','#000080','#7ccd7c','#D8BFD8','#8B8878','#528B8B'],
+            series: [
+                {
+                    type: 'treemap',
+                    left: "18%",
+                    right: "18%",
+                    itemStyle: {
+                        borderWidth: 1,
+                        gapWidth: 1,
+                        borderColor: '#fff',
+                    },
+                    colorMappingBy: 'id',
+                    data: [
+                        {
+                            name: '安全韧性',
+                            id: 1,
+                            value: 4,
+                            children: [
+                                {
+                                    name: '老旧燃气管道更新改造',
+                                    value: 1,
+                                    id: 1,
+                                },
+                                {
+                                    name: '老旧供水管网更新改造',
+                                    value: 1,
+                                    id: 1,
+                                },
+                                {
+                                    name: '增设集中充电设施小区数',
+                                    value: 1,
+                                    id: 1,
+                                },
+                                {
+                                    name: '城市建成区达到海绵城市建设要求面积比例',
+                                    value: 1,
+                                    id: 1,
+                                },
+                            ]
+                        },
+                        {
+                            name: '	整洁有序',
+                            value: 4,
+                            id: 2,
+                            children: [
+                                {
+                                    name: '生活垃圾分类综合达标率',
+                                    value: 2,
+                                    id: 2,
+                                },
+                                {
+                                    name: '生态清洁小流域建设数',
+                                    value: 1,
+                                    id: 2,
+                                },
+                                {
+                                    name: '架空线入地和杆箱整治',
+                                    value: 1,
+                                    id: 2,
+                                },
+                            ]
+                        },
+                        {
+                            name: '便捷温馨',
+                            value: 6,
+                            id: 3,
+                            children: [
+                                {
+                                    name: '既有多层住宅加装电梯',
+                                    value: 2,
+                                    id: 3,
+                                },
+                                {
+                                    name: '绿道建设',
+                                    value: 2,
+                                    id: 3,
+                                },
+                                {
+                                    name: '口袋公园建设',
+                                    value: 1,
+                                    id: 3,
+                                },
+                                {
+                                    name: '绿色社区创建率',
+                                    value: 1,
+                                    id: 3,
+                                },
+                            ]
+                        }, {
+                            name: '智慧转型',
+                            value: 2,
+                            id: 4,
+                            children: [
+                                {
+                                    name: '智能快件箱建设',
+                                    value: 2,
+                                    id: 4,
+                                },                           
+                            ]
+                        },
+                        {
+                            name: '综合管理',
+                            value: 2,
+                            id: 5,
+                            children: [
+                                {
+                                    name: '新编或修订城市管理标准',
+                                    value: 2,
+                                    id: 5,
+                                },
+                                
+                            ]
+                        },
+                    ]
+                }
+            ]
+        }
+        option2 && myChart2.setOption(option2);
+    </script>
+
+
+</body>
+
+</html>

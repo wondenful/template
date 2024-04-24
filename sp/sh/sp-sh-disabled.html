@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specific-page</title>
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../sp.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navi-contain">
+        <div class="navi">
+            <div class="left-navi">
+                <img src="../fonts/fonts/city.svg" class="navi-img">
+                <span>上海市</span>
+            </div>
+            <div class="right-navi">
+                <a class="navi-button" href="../../index_start.html" >历史馆</a>
+                <a class="navi-button" href="../../gallery.html">热门词云</a>
+                <a class="navi-button" href="../../general.html">远景规划</a>
+                <a class="navi-button active" href="../../China.html" >具体省份</a>
+                <a class="navi-button" href="../../contact.html">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <aside class="left-father">
+        <div class="left-box">
+            <div class="left-title">
+                规划方向
+            </div>
+            <a class="left-button" href="./sp-sh-knowledge.html"><img src="../fonts/fonts/knowledge.svg" class="left-img"><span
+                class="label">知识产权</span></a>
+        <a class="left-button" href="./sp-sh-CNmedicine.html"><img src="../fonts/fonts/sh-CNmedicine.svg" class="left-img"><span
+                class="label">中医药</span></a>
+        <a class="left-button" href="./sp-sh-education.html"><img src="../fonts/fonts/sh-education.svg" class="left-img"><span
+                class="label">教育</span>
+        </a>
+        <a href="./sp-sh-weather.html" class="left-button"><img src="../fonts/fonts/enviroment.svg"
+            class="left-img"><span class="label">气象服务保障</span></a>
+            <a href="./sp-sh-disabled.html" class="left-button left-button-point"><img src="../fonts/fonts/disabled.svg"
+                class="left-img"><span class="label">残疾人事业</span></a>
+                <a href="./sp-sh-city.html" class="left-button"><img src="../fonts/fonts/chengshi.svg"
+                    class="left-img"><span class="label">城市管理精细化</span></a>
+        </div>
+    </aside>
+    <main class="right-box">
+        <div class="right-top-box">
+            <h4 style="color:#012970">残疾人事业</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">主页</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">具体省份</a></li>
+                  <li class="breadcrumb-item"><a href="#" class="bread-a">上海</a></li>
+                  <li class="breadcrumb-item active" aria-current="page" style="color:#51678f">残疾人事业</li>
+                </ol>
+            </nav>
+            <div class="card-2">
+                <h4 class="top-card-title">
+                    残疾人事业
+                    <span class="top-card-span">|上海</span>
+                </h4>
+                <p class="top-card-p">
+                    以习近平新时代中国特色社会主义思想为指导，深入贯彻党的十九大和十九届二中、三中、四中、五中全会精神，把残疾人事业纳入
+经济社会发展大局，充分体现对残疾人“格外关心、格外关注”，以“平等、参与、共享”为发展理念，积极顺应残疾人对美好生活的新期待，
+在残疾人事业发展上体现城市温度。以推动残疾人事业高质量发展，实现残疾人群众高品质生活为主题，以建设“底线民生”“基本民生”“质量民生”为主线，
+以加强残疾人法治建设为保障，使残疾人工作在公共服务供给、残健融合发展等方面保持全国领先地位，
+全面提高残疾人事业治理能力和治理体系现代化水平，让发展成果更多、更公平、更广泛地惠及广大残疾人群众，促进残疾人全面发展和共同富裕。
+                </p>
+            </div>
+        </div>
+        <div class="right-bottom-box">
+            <div class="card-1" id="bar">
+
+            </div>
+            
+
+            
+            <div class="card-1" id="bar2">
+
+            </div>
+            
+        </div>
+    </main>
+    </div>
+
+    <script src="../echarts.min.js"></script>
+
+    <script src="../button.js">
+    </script>
+
+    <script src=""></script>
+    <script>
+        var chartDom = document.getElementById('bar');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            color: ['#ADD8E6', '#4682B4', '#BDB76B', '#000080', '#7ccd7c', '#D8BFD8', '#8B8878', '#528B8B'],
+            title: {
+                text: '部分残疾人事业发展指标'
+            },
+            radar: {
+                center: ['50%', '50%'],
+                radius: '60%',
+                // shape: 'circle',
+                indicator: [
+                    { name: '', max: 100 },
+                    { name: '残疾人城乡居民基本养老保险参保率', max: 100 },
+                    { name: '残疾人城乡居民基本医疗保险参保率', max: 100 },
+                    { name: '困难残疾人精准帮扶覆盖率', max: 100 },
+                    { name: '高中阶段残疾学生入学率', max: 100 },
+                    { name: '政府公众号和政务APP信息无障碍改造率', max: 100 },
+                    { name: '参与文化体育活动残疾人比例', max: 100 },
+                ]
+            },
+            series: [
+                {
+                    name: '部分残疾人事业发展指标',
+                    type: 'radar',
+                    label: {
+                        show: true,
+                        color: "#0f58a2",
+                        fontSize: 12,
+                    },
+                    data: [
+                        {
+                            value: [95, 98, 95, 75, 60, 60],
+                            name: 'Allocated Budget'
+                        },
+                    ]
+                }
+            ],
+            grid: {
+                top: '4%',
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            }
+        }
+        option && myChart.setOption(option);
+
+        var chartDom2 = document.getElementById('bar2');
+        var myChart2 = echarts.init(chartDom2);
+        var option2;
+        option2 = {
+            title: {
+                text: '残疾人事业发展方向'
+            },
+            legend: {
+                top: 'bottom'
+            },
+            toolbox: {
+                show: false,
+                feature: {
+                mark: { show: true },
+                dataView: { show: true, readOnly: false },
+                restore: { show: true },
+                saveAsImage: { show: true }
+                }
+            },
+            series: [
+                {
+                name: '残疾人事业发展指标',
+                type: 'pie',
+                radius: [40, 180],
+                center: ['50%', '50%'],
+                roseType: 'area',
+                itemStyle: {
+                    borderRadius: 8
+                },
+                data: [
+                    { value: 40, name: '收入' },
+                    { value: 38, name: '保险' },
+                    { value: 32, name: '就业' },
+                    { value: 30, name: '康复服务' },
+                    { value: 28, name: '教育' },
+                    { value: 26, name: '服务机构' },
+                    { value: 22, name: '困难帮扶' },
+                ]
+                }
+            ]
+        }
+        option2 && myChart2.setOption(option2);
+    </script>
+
+
+</body>
+
+</html>
