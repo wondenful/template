@@ -111,7 +111,7 @@ var pieEchart;
     pieEchart.on("click", function (param) {
       alert("即将跳转到详细界面");
       setTimeout(function () {
-        location.href = "https://gitee.com/iGaoWei/big-data-view";
+        location.href = "";
       }, 100);
     });
   }
