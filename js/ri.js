@@ -11,9 +11,15 @@ function getVirtualData(year) {
     const date = new Date(time);
     data.push([
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate(),
-      Math.floor(Math.random() * 2000),
+      Math.floor(0),
     ]);
   }
+  data[112] = [year + "-4-22", 2000 + generateRandomInteger(-500, 500)];
+  data[113] = [year + "-4-23", 1800 + generateRandomInteger(-500, 500)];
+  data[114] = [year + "-4-24", 1500 + generateRandomInteger(-500, 500)];
+  data[115] = [year + "-4-25", 800 + generateRandomInteger(-500, 500)];
+  data[116] = [year + "-4-26", 200 + generateRandomInteger(-200, 200)];
+  data[117] = [year + "-4-27", 200 + generateRandomInteger(-200, 200)];
   return data;
 }
 
@@ -37,7 +43,7 @@ var riEchart;
         left: 70,
         right: 50,
         cellSize: 40,
-        range: "2024-03",
+        range: "2024-04",
         orient: "vertical",
         itemStyle: {
           borderWidth: 1,
